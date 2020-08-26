@@ -1,13 +1,14 @@
-function s = sphere_scaffold(n_az,n_el)
+function s = sphere_scaffold(n_az,n_el,n_circ)
 % sphere_scaffold
-%   s = sphere_scaffold(n_az,n_el)
+%   s = sphere_scaffold(n_az,n_el,n_circ)
 % DKS 2020
 
-if nargin < 2
-    n_el = n_az;
+if nargin < 3
+    n_circ = 50;        % num of line segs used to interpolate circle
+    if nargin < 2
+        n_el = n_az;
+    end
 end
-
-n_circ = 50;
 
 theta = linspace(0,pi,n_az+1);
 theta = theta(1:end-1);
